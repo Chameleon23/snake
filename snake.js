@@ -64,7 +64,6 @@ function Snake() {
       var corrent_cube = this.tail[i]
       var distance = dist(head[0], head[1], corrent_cube[0], corrent_cube[1])
       if (distance < 1){
-        console.log("snake is dead!!!")
         if (this.tail.length > 2)
           this.tail.length = 3
       }
@@ -75,15 +74,12 @@ function Snake() {
   // if apple was eaten return true else false
   this.eat = function (apple_x, apple_y) {
     var head = this.tail[0]
-    console.log(apple_x, head[0])
-    console.log(apple_y, head[1])
+    var size = 1
     var distance = dist(head[0], head[1], apple_x, apple_y)
-    if (distance < 20){
+    if (distance < 1){
       this.grow()
-      console.log("true")
       return true
     }
-    console.log("false")
     return false
   }
 }

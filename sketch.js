@@ -9,7 +9,7 @@ function setup() {
   createCanvas(WINDOW_WIDTH, WINDOW_HEIGHT);
   snake = new Snake()
   apple = new Apple()
-  apple.spawn()
+  apple.spawn_apple()
   frameRate(10);
 }
 
@@ -22,7 +22,7 @@ function draw() {
   var apple_coordinates = apple.get_apple()
   if (snake.eat(apple_coordinates[0], apple_coordinates[1]))
   {
-    apple.spawn()
+    apple.spawn_apple()
   }
 
 }
