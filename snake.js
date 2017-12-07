@@ -1,5 +1,7 @@
 var blue_colour = [30,144,255]
 var cube_size = 20
+var score = 0
+var score_counter = 1
 
 
 function Snake() {
@@ -14,8 +16,10 @@ function Snake() {
 
   this.tail.push([0, 0])
 
-  this.grow = function () {
-    this.tail.push([this.tail[0], this.tail[1]])
+  this.grow = function (n) {
+    for (var i = 0; i < n; ++ i) {
+      this.tail.push([this.tail[0], this.tail[1]])
+    }
   }
 
 
@@ -64,22 +68,41 @@ function Snake() {
       var corrent_cube = this.tail[i]
       var distance = dist(head[0], head[1], corrent_cube[0], corrent_cube[1])
       if (distance < 1){
-        if (this.tail.length > 2)
+        if (this.tail.length > 3) {
           this.tail.length = 3
+          score = 0
+          score_counter = 1
+        }
       }
     }
   }
 
 
   // if apple was eaten return true else false
-  this.eat = function (apple_x, apple_y) {
+  this.eat = function (apple) {
     var head = this.tail[0]
     var size = 1
-    var distance = dist(head[0], head[1], apple_x, apple_y)
+    if (apple[2] === 40)
+      size *= 2
+
+    if (apple[3][1] === "red")
+      size *= 2
+    var distance = dist(head[0], head[1], apple[0], apple[1])
     if (distance < 1){
-      this.grow()
+      this.grow(size)
+      score += score_counter;
+      ++score_counter;
       return true
     }
     return false
+  }
+
+
+  this.draw_score = function () {
+
+
+    textSize(20);
+    fill(255);
+    text("score: " + score, 0, 20);
   }
 }

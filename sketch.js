@@ -1,6 +1,7 @@
 var snake
 var apple
 
+
 var WINDOW_WIDTH = 1360;
 var WINDOW_HEIGHT = 680;
 
@@ -19,8 +20,11 @@ function draw() {
   snake.draw()
   snake.move()
   apple.draw_apple()
-  var apple_coordinates = apple.get_apple()
-  if (snake.eat(apple_coordinates[0], apple_coordinates[1]))
+  snake.draw_score()
+  var new_apple = apple.get_apple()
+
+  // if apple was eaten spawn it again
+  if (snake.eat(new_apple))
   {
     apple.spawn_apple()
   }
@@ -42,5 +46,5 @@ function keyPressed() {
 
 
 function mousePressed() {
-  snake.grow()
+  snake.grow(1)
 }
