@@ -2,6 +2,7 @@
 
 
 var blue_colour = [30,144,255]
+var dark_blue_colour = [0, 0, 255]
 var cube_size = 20
 var name
 var score = 0
@@ -106,11 +107,17 @@ function Snake() {
     if (apple[3][1] === "red")
       size *= 2
 
-    var distance = dist(head[0], head[1], apple[0], apple[1])
-    if (distance < 1){
+    var distance = dist(head[0] + cube_size / 2, head[1] + cube_size / 2, apple[0] + apple[2] / 2, apple[1] + apple[2] / 2)
+    if (distance < 15){
       this.grow(size)
       score += score_counter;
       ++score_counter;
+
+      // change snake colour
+      if (apple[3][1] == "red")
+        this.snake_body_colour = dark_blue_colour
+      else this.snake_body_colour = blue_colour
+
       return true
     }
     return false

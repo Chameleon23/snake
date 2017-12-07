@@ -6,6 +6,7 @@ var pause = false
 function get_window_size(){
   var w = window.innerWidth
   var h = window.innerHeight
+
   var n_w = w % 20;  // remain
   var n_h = h % 20;  // remain
   if (n_w != 0){
@@ -94,8 +95,8 @@ function keyPressed() {
 }
 
 
-function mousePressed() {
-  // print_have_fun()
-  print_self_eat()
-}
+// function mousePressed() {
+//   // print_have_fun()
+//   print_self_eat()
+// }
 

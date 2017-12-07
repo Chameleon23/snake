@@ -25,7 +25,6 @@ function Apple() {
 
     // get random size for apple
     if (size > 0.5){
-      // TODO: size value to 40
       this.size = 40
     }
     else{
@@ -33,7 +32,7 @@ function Apple() {
     }
 
     // get random color for snake
-    if (color > 0.5){
+    if (color > 0.7){
       this.colour[0] = red_colour
       this.colour[1] = "red"
     }
