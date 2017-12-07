@@ -71,6 +71,7 @@ function Snake() {
           this.tail.length = 3
           score = 0
           score_counter = 1
+          get_label_from_center()
         }
 
       }

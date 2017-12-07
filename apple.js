@@ -26,7 +26,7 @@ function Apple() {
     // get random size for apple
     if (size > 0.5){
       // TODO: size value to 40
-      this.size = 20
+      this.size = 40
     }
     else{
       this.size = 20

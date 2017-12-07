@@ -94,6 +94,8 @@ function keyPressed() {
 
 
 function mousePressed() {
-  snake.grow(1)
+  console.log("work")
+  get_label_from_center()
+  console.log("work 1")
 }
 
