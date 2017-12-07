@@ -10,7 +10,6 @@ function Snake() {
   this.x = 0
   this.y = 0
   this.speed = 20
-  this.point = 0
   this.tail = []
   this.snake_body_colour = blue_colour
 
@@ -38,8 +37,6 @@ function Snake() {
     }
     fill(200)
     rect(this.tail[0][0], this.tail[0][1], cube_size, cube_size)
-
-
   }
 
 
@@ -64,6 +61,7 @@ function Snake() {
 
   this.check_life = function () {
     var head = [this.x, this.y]
+
     for (var i = 1; i < this.tail.length; ++i){
       var corrent_cube = this.tail[i]
       var distance = dist(head[0], head[1], corrent_cube[0], corrent_cube[1])
@@ -73,6 +71,7 @@ function Snake() {
           score = 0
           score_counter = 1
         }
+
       }
     }
   }
@@ -82,14 +81,17 @@ function Snake() {
   this.eat = function (apple) {
     var head = this.tail[0]
     var size = 1
+
     if (apple[2] === 40)
       size *= 2
 
     if (apple[3][1] === "red")
       size *= 2
+
     var distance = dist(head[0], head[1], apple[0], apple[1])
     if (distance < 1){
       this.grow(size)
+      console.log("shesrulda")
       score += score_counter;
       ++score_counter;
       return true
@@ -99,8 +101,6 @@ function Snake() {
 
 
   this.draw_score = function () {
-
-
     textSize(20);
     fill(255);
     text("score: " + score, 0, 20);

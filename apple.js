@@ -1,5 +1,5 @@
 var green_colour = [0, 255, 0]
-var red_colour = [255, 0, 0]
+var red_colour = [220,20,60]
 var x_apple = []
 var y_apple = []
 
