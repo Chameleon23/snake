@@ -2,8 +2,24 @@ var snake
 var apple
 var pause = false
 
-var WINDOW_WIDTH = 1360;
-var WINDOW_HEIGHT = 700;
+
+function get_window_size(){
+  var w = window.innerWidth
+  var h = window.innerHeight
+  var n_w = w % 20;  // remain
+  var n_h = h % 20;  // remain
+  if (n_w != 0){
+    w = w - n_w  // now w % 20 is 0
+  }
+
+  if (n_h != 0){
+    h = h - n_h // now h % 20 is 0
+  }
+  return [w, h]
+}
+
+var WINDOW_WIDTH = get_window_size()[0]
+var WINDOW_HEIGHT = get_window_size()[1]
 
 
 function reset()
@@ -11,6 +27,10 @@ function reset()
   pause = false
   score = 0
   score_counter = 1
+  var _name = prompt("Please enter your name", "name");
+  if (_name != null){
+    name = _name
+  }
 }
 
 

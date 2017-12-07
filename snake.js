@@ -1,5 +1,6 @@
 var blue_colour = [30,144,255]
 var cube_size = 20
+var name
 var score = 0
 var score_counter = 1
 
@@ -103,6 +104,6 @@ function Snake() {
   this.draw_score = function () {
     textSize(20);
     fill(255);
-    text("score: " + score, 0, 20);
+    text(name+ ": " + score, 0, 20);
   }
 }
