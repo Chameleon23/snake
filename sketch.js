@@ -31,6 +31,7 @@ function reset()
   if (_name != null){
     name = _name
   }
+  print_have_fun()
 }
 
 
@@ -81,9 +82,9 @@ function keyPressed() {
     }
     else {
       pause = true
-      textSize(60);
+      textSize(40);
       fill(255);
-      text("Game paused, press Enter to continue.", 150, 300);
+      text("Game paused, press Enter to continue.",lbl_left / 4, lbl_top);
     }
   }else if (keyCode === DELETE)
   {
@@ -94,8 +95,7 @@ function keyPressed() {
 
 
 function mousePressed() {
-  console.log("work")
-  get_label_from_center()
-  console.log("work 1")
+  // print_have_fun()
+  print_self_eat()
 }
 

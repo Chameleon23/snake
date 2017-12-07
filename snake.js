@@ -1,3 +1,6 @@
+// TODO: add sound effect
+
+
 var blue_colour = [30,144,255]
 var cube_size = 20
 var name
@@ -25,8 +28,11 @@ function Snake() {
 
   // change direction function
   this.change_dir = function (x, y) {
-    this.xdir = x
-    this.ydir = y
+    if (x != -this.xdir && y != -this.ydir) {
+      this.xdir = x
+      this.ydir = y
+    }
+
   }
 
 
@@ -54,8 +60,18 @@ function Snake() {
 
     this.x += this.speed * this.xdir
     this.y += this.speed * this.ydir
-    this.x = constrain(this.x, 0, WINDOW_WIDTH - cube_size)
-    this.y = constrain(this.y, 0, WINDOW_HEIGHT - cube_size)
+
+
+    if (this.x > WINDOW_WIDTH)
+      this.x = WINDOW_WIDTH - this.x + cube_size
+    if (this.x < 0)
+      this.x = WINDOW_WIDTH + this.x + cube_size
+
+
+    if (this.y > WINDOW_HEIGHT)
+      this.y = WINDOW_HEIGHT - this.y + cube_size
+    if (this.y < 0)
+      this.y = WINDOW_HEIGHT + this.y + cube_size
 
   }
 
@@ -71,7 +87,7 @@ function Snake() {
           this.tail.length = 3
           score = 0
           score_counter = 1
-          get_label_from_center()
+          print_self_eat()
         }
 
       }
@@ -93,7 +109,6 @@ function Snake() {
     var distance = dist(head[0], head[1], apple[0], apple[1])
     if (distance < 1){
       this.grow(size)
-      console.log("shesrulda")
       score += score_counter;
       ++score_counter;
       return true

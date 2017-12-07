@@ -1,13 +1,42 @@
-function get_label_from_center(){
-  console.log("start")
-  var x = document.getElementById("lbl_center")// .innerHTML("heey")
+var lbl_left = (WINDOW_WIDTH / 2) - 100
+var lbl_top = WINDOW_HEIGHT / 4
+
+
+function print_self_eat(){
+  var x = document.getElementById("lbl_self_eat")
+
   x.innerText = "Don't eat yourself !!!"
-  if($("label").is(":visible")) {
-    $("label").fadeOut(3000)
+  x.style.left = lbl_left;
+  x.style.top = lbl_top;
+
+  if($("#lbl_self_eat").is(":visible")) {
+    $("#lbl_self_eat").fadeOut(3000)
   }
   else {
-    $("label").fadeIn(3000)
-    get_label_from_center()
+    $("#lbl_self_eat").fadeIn(3000)
+    print_self_eat()
+
   }
+
+  // $("#lbl_self_eat").fadeToggle(3000) doen't work as I want
+
 }
 
+
+function print_have_fun() {
+  var x = document.getElementById("lbl_have_fun")
+
+  x.innerText = "Have Fun :) ..."
+  x.style.left = lbl_left;
+  x.style.top = lbl_top;
+
+
+  if($("#lbl_have_fun").is(":visible")) {
+    $("#lbl_have_fun").hide(3000)
+  }
+  else {
+    $("#lbl_have_fun").show(4000)
+    print_have_fun()
+  }
+
+}
