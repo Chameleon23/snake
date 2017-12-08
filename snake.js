@@ -100,12 +100,19 @@ function Snake() {
   this.eat = function (apple) {
     var head = this.tail[0]
     var size = 1
+    var frame_rate = 10
+    var snake_colour = blue_colour
 
-    if (apple[2] === 40)
+    if (apple[2] === 40) {
       size *= 2
+      frame_rate += 5
+    }
 
-    if (apple[3][1] === "red")
+    if (apple[3][1] === "red") {
+      snake_colour = dark_blue_colour
       size *= 2
+      frame_rate += 5
+    }
 
     var distance = dist(head[0] + cube_size / 2, head[1] + cube_size / 2, apple[0] + apple[2] / 2, apple[1] + apple[2] / 2)
     if (distance < 15){
@@ -113,10 +120,8 @@ function Snake() {
       score += score_counter;
       ++score_counter;
 
-      // change snake colour
-      if (apple[3][1] == "red")
-        this.snake_body_colour = dark_blue_colour
-      else this.snake_body_colour = blue_colour
+      this.snake_body_colour = snake_colour
+      frame_rate_global = frame_rate
 
       return true
     }

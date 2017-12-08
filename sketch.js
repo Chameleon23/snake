@@ -1,6 +1,7 @@
 var snake
 var apple
 var pause = false
+var frame_rate_global = 10
 
 
 function get_window_size(){
@@ -25,6 +26,7 @@ var WINDOW_HEIGHT = get_window_size()[1]
 
 function reset()
 {
+  frame_rate_global = 10
   pause = false
   score = 0
   score_counter = 1
@@ -42,13 +44,14 @@ function setup() {
   snake = new Snake()
   apple = new Apple()
   apple.spawn_apple()
-  frameRate(10);
+  frameRate(frame_rate_global);
 }
 
 
 function draw() {
   if (!pause) {
     background(50);
+    frameRate(frame_rate_global);
 
     snake.draw()
     snake.move()
